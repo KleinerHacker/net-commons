@@ -1,0 +1,5 @@
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons\bin\Debug\net.commons.dll
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons\bin\Debug\net.commons.pdb
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons\obj\Debug\net.commons.csprojResolveAssemblyReference.cache
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons\obj\Debug\net.commons.dll
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons\obj\Debug\net.commons.pdb
