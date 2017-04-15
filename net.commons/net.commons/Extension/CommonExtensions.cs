@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace net.commons
+namespace net.commons.Extension
 {
     public static class CommonExtensions
     {
@@ -17,10 +15,5 @@ namespace net.commons
         {
             return values.Contains(value);
         }
-
-        /*public static bool Contains(this Enum value, Enum other)
-        {
-            return (value & other) == other;
-        }*/
     }
 }

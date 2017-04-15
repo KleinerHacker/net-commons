@@ -1,0 +1,16 @@
+C:\Users\pfeifchr\Desktop\net-commons-master\net.commons\net.commons.run\bin\Debug\net.commons.run.exe.config
+C:\Users\pfeifchr\Desktop\net-commons-master\net.commons\net.commons.run\bin\Debug\net.commons.run.exe
+C:\Users\pfeifchr\Desktop\net-commons-master\net.commons\net.commons.run\bin\Debug\net.commons.run.pdb
+C:\Users\pfeifchr\Desktop\net-commons-master\net.commons\net.commons.run\bin\Debug\net.commons.dll
+C:\Users\pfeifchr\Desktop\net-commons-master\net.commons\net.commons.run\bin\Debug\net.commons.pdb
+C:\Users\pfeifchr\Desktop\net-commons-master\net.commons\net.commons.run\obj\Debug\net.commons.run.csprojResolveAssemblyReference.cache
+C:\Users\pfeifchr\Desktop\net-commons-master\net.commons\net.commons.run\obj\Debug\net.commons.run.exe
+C:\Users\pfeifchr\Desktop\net-commons-master\net.commons\net.commons.run\obj\Debug\net.commons.run.pdb
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons.run\bin\Debug\net.commons.run.exe.config
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons.run\obj\Debug\net.commons.run.exe
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons.run\obj\Debug\net.commons.run.pdb
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons.run\bin\Debug\net.commons.run.exe
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons.run\bin\Debug\net.commons.run.pdb
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons.run\bin\Debug\net.commons.dll
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons.run\bin\Debug\net.commons.pdb
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons.run\obj\Debug\net.commons.run.csprojResolveAssemblyReference.cache
