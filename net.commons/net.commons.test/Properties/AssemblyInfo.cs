@@ -1,16 +1,19 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿#region
+
+using System.Reflection;
 using System.Runtime.InteropServices;
+
+#endregion
 
 // Allgemeine Informationen über eine Assembly werden über folgende 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("net.commons.test")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Commons for .NET (Test)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Bundesdruckerei GmbH")]
+[assembly: AssemblyCompany("PC-Soft (Pfeiffer C Soft)")]
 [assembly: AssemblyProduct("net.commons.test")]
-[assembly: AssemblyCopyright("Copyright © Bundesdruckerei GmbH 2017")]
+[assembly: AssemblyCopyright("Copyright © PC-Soft 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

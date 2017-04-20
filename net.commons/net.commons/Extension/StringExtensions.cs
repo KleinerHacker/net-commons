@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿#region
+
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+
+#endregion
 
 namespace net.commons.Extension
 {
@@ -31,12 +34,22 @@ namespace net.commons.Extension
         public static string Repeat(this string value, int count)
         {
             var val = "";
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
                 val += value;
             }
 
             return val;
+        }
+
+        public static Match Match(this string value, string regex, bool ignoreCase = false)
+        {
+            return new Regex(regex, ignoreCase ? RegexOptions.IgnoreCase : RegexOptions.None).Match(value);
+        }
+
+        public static bool MatchWildcard(this string value, string wildcard, bool ignoreCase = false)
+        {
+            return LikeOperator.LikeString(value, wildcard, ignoreCase ? CompareMethod.Text : CompareMethod.Binary);
         }
     }
 }

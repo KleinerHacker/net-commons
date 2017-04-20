@@ -1,4 +1,8 @@
-﻿using System;
+﻿#region
+
+using System;
+
+#endregion
 
 namespace net.commons.Extension
 {
@@ -43,7 +47,7 @@ namespace net.commons.Extension
 
         public static byte[] ToByteArray(this sbyte value)
         {
-            return BitConverter.GetBytes(value);
+            return new[] {(byte) value};
         }
 
         public static byte[] ToByteArray(this float value)
@@ -97,7 +101,7 @@ namespace net.commons.Extension
 
         public static sbyte ToSByte(this byte[] bytes, int startIndex = 0)
         {
-            return (sbyte)bytes[startIndex];
+            return (sbyte) bytes[startIndex];
         }
 
         public static double ToDouble(this byte[] bytes, int startIndex = 0)

@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿#region
+
+using System;
 using System.Text;
-using System.Threading.Tasks;
+
+#endregion
 
 namespace net.commons.Extension
 {
@@ -10,12 +11,25 @@ namespace net.commons.Extension
     {
         public static byte[] ToByteArray(this char value)
         {
-            return BitConverter.GetBytes(value);
+            return ToByteArray(value, Encoding.Default);
+        }
+
+        public static byte[] ToByteArray(this char value, Encoding encoding)
+        {
+            return new[] {value}.ToByteArray(encoding);
         }
 
         public static char ToCharacter(this byte[] value, int startIndex = 0)
         {
-            return BitConverter.ToChar(value, startIndex);
+            return ToCharacter(value, Encoding.Default, startIndex);
+        }
+
+        public static char ToCharacter(this byte[] value, Encoding encoding, int startIndex = 0)
+        {
+            if (value.IsEmpty())
+                throw new ArgumentException("Empty byte array");
+
+            return value.ToCharacterArray(encoding, startIndex)[0];
         }
 
         public static byte[] ToByteArray(this char[] value)

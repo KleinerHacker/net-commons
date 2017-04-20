@@ -1,5 +1,10 @@
-﻿using System;
+﻿#region
+
+using System;
+using System.Collections.Generic;
 using System.Linq;
+
+#endregion
 
 namespace net.commons.Extension
 {
@@ -50,13 +55,30 @@ namespace net.commons.Extension
             var value = "";
             var length = minLength == maxLength ? minLength : random.Next(minLength, maxLength);
 
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
                 var index = random.Next(valueSpace.Length);
                 value += valueSpace[index];
             }
 
             return value;
+        }
+
+        public static T NextOf<T>(this Random random, params T[] values)
+        {
+            var index = random.Next(values.Length);
+            return values[index];
+        }
+
+        public static T NextOf<T>(this Random random, IEnumerable<T> values)
+        {
+            return NextOf(random, values.ToArray());
+        }
+
+        public static KeyValuePair<TK, TV> NextOf<TK, TV>(this Random random, IDictionary<TK, TV> dict)
+        {
+            var index = random.Next(dict.Count);
+            return dict.ElementAt(index);
         }
     }
 

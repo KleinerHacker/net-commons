@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,12 +29,15 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,7 +46,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleEx.cs" />
+    <Compile Include="Extension\CollectionExtensions.cs" />
+    <Compile Include="Extension\DictionaryExtensions.cs" />
+    <Compile Include="Extension\ThreadExtensions.cs" />
     <Compile Include="Extension\WPF\BindingExtensions.cs" />
     <Compile Include="Extension\BooleanExtensions.cs" />
     <Compile Include="Extension\CharacterExtensions.cs" />
@@ -51,6 +57,10 @@
     <Compile Include="Extension\IO\StreamExtensions.cs" />
     <Compile Include="Extension\NumberExtensions.cs" />
     <Compile Include="Extension\StringExtensions.cs" />
+    <Compile Include="Extension\WPF\DependencyPropertyExtensions.cs" />
+    <Compile Include="Markup\EnumValueExtension.cs" />
+    <Compile Include="Markup\EnumValueListExtension.cs" />
+    <Compile Include="Markup\NativeValueExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extension\RandomExtensions.cs" />
   </ItemGroup>

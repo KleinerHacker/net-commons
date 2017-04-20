@@ -50,7 +50,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ConosleExTest.cs" />
+    <Compile Include="Extension\CollectionExtensionsTest.cs" />
+    <Compile Include="Extension\IO\StreamExtensionsTest.cs" />
+    <Compile Include="Extension\NumberExtensionsTest.cs" />
+    <Compile Include="Extension\StringExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

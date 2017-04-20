@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿#region
+
+using System;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+
+#endregion
 
 namespace net.commons.Extension
 {
     public static class EventHandlerExtensions
     {
         /// <summary>
-        /// Call the event handler without throw exception directly
+        ///     Call the event handler without throw exception directly
         /// </summary>
         /// <param name="eventHandler"></param>
         /// <param name="sender"></param>
@@ -32,7 +32,7 @@ namespace net.commons.Extension
         }
 
         /// <summary>
-        /// Call the event handler without throw exception directly
+        ///     Call the event handler without throw exception directly
         /// </summary>
         /// <param name="eventHandler"></param>
         /// <param name="sender"></param>

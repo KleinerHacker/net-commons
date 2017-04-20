@@ -1,0 +1,9 @@
+D:\Dokumente\Visual Studio 2015\Projects\net.commons\net.commons\bin\Release\net.commons.dll
+D:\Dokumente\Visual Studio 2015\Projects\net.commons\net.commons\bin\Release\net.commons.pdb
+D:\Dokumente\Visual Studio 2015\Projects\net.commons\net.commons\obj\Release\net.commons.dll
+D:\Dokumente\Visual Studio 2015\Projects\net.commons\net.commons\obj\Release\net.commons.pdb
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons\bin\Release\net.commons.dll
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons\bin\Release\net.commons.pdb
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons\obj\Release\net.commons.csprojResolveAssemblyReference.cache
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons\obj\Release\net.commons.dll
+C:\Workspace\NET\Frameworks\net-commons\net.commons\net.commons\obj\Release\net.commons.pdb
