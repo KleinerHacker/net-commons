@@ -7,6 +7,7 @@ using System.Windows.Markup;
 
 namespace net.commons.Markup
 {
+    [MarkupExtensionReturnType(typeof(Enum))]
     public class EnumValueExtension : MarkupExtension
     {
         public Type Type { get; set; }

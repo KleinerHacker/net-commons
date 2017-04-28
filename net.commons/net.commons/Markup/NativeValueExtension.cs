@@ -7,6 +7,7 @@ using System.Windows.Markup;
 
 namespace net.commons.Markup
 {
+    [MarkupExtensionReturnType(typeof(object))]
     public class NativeValueExtension : MarkupExtension
     {
         public NativeType Type { get; set; }

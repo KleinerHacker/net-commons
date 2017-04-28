@@ -9,11 +9,11 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("net.commons.test")]
-[assembly: AssemblyDescription("Commons for .NET (Test)")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("PC-Soft (Pfeiffer C Soft)")]
+[assembly: AssemblyCompany("Bundesdruckerei GmbH")]
 [assembly: AssemblyProduct("net.commons.test")]
-[assembly: AssemblyCopyright("Copyright © PC-Soft 2017")]
+[assembly: AssemblyCopyright("Copyright © Bundesdruckerei GmbH 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

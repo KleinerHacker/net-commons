@@ -1,15 +1,19 @@
 ﻿#region
 
 using System;
+using System.Linq;
 using System.Windows.Markup;
 
 #endregion
 
 namespace net.commons.Markup
 {
+    [MarkupExtensionReturnType(typeof(Enum[]))]
     public class EnumValueListExtension : MarkupExtension
     {
         public Type Type { get; set; }
+        public bool WithNoneItem { get; set; } = false;
+        public string NoneItemString { get; set; } = "<None>";
 
         public EnumValueListExtension()
         {
@@ -26,7 +30,13 @@ namespace net.commons.Markup
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            return Enum.GetValues(Type);
+            var values = Enum.GetValues(Type).Cast<object>().ToList();
+            if (WithNoneItem)
+            {
+                values.Insert(0, NoneItemString);
+            }
+
+            return values.ToArray();
         }
     }
 }
