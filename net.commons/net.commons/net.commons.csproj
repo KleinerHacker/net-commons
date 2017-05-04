@@ -30,6 +30,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -52,6 +54,7 @@
     <Compile Include="Converter\TextManipulationConverter.cs" />
     <Compile Include="Converter\VisibilityManageLayoutConverter.cs" />
     <Compile Include="Converter\VisibilityInverseConverter.cs" />
+    <Compile Include="doxy.cs" />
     <Compile Include="Extension\CollectionExtensions.cs" />
     <Compile Include="Extension\DictionaryExtensions.cs" />
     <Compile Include="Extension\ThreadExtensions.cs" />
@@ -75,6 +78,12 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>"$(SolutionDir)\cleanup.bat" "$(ProjectDir)"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>"$(SolutionDir)\doxy.bat" "$(SolutionDir)" "doxy.cfg"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

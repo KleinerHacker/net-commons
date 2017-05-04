@@ -7,6 +7,11 @@ using System.Windows.Markup;
 
 namespace net.commons.Markup
 {
+    /// \ingroup wpf_converter_param
+    /// \ingroup wpf_markup
+    /// <summary>
+    /// Markup extension for DateTimeConverter parameter to use in XAML
+    /// </summary>
     [MarkupExtensionReturnType(typeof(DateTimeParam))]
     public class DateTimeParamExtension : MarkupExtension, IDateTimeParam
     {
@@ -25,9 +30,19 @@ namespace net.commons.Markup
         }
     }
 
+    /// \ingroup wpf_converter_param
+    /// <summary>
+    /// Interface for DateTimeConverter parameter
+    /// </summary>
     public interface IDateTimeParam
     {
+        /// <summary>
+        /// Presentation of date value
+        /// </summary>
         DatePresentation DatePresentation { get; set; }
+        /// <summary>
+        /// Presentation of time value
+        /// </summary>
         TimePresentation TimePresentation { get; set; }
         string Separator { get; set; }
     }
@@ -46,17 +61,43 @@ namespace net.commons.Markup
         }
     }
 
+    /// \ingroup wpf_converter_param
+    /// <summary>
+    /// Presentation of date value
+    /// </summary>
     public enum DatePresentation
     {
+        /// <summary>
+        /// Not included in string
+        /// </summary>
         None,
+        /// <summary>
+        /// Short variant
+        /// </summary>
         Short,
+        /// <summary>
+        /// Long variant
+        /// </summary>
         Long
     }
 
+    /// \ingroup wpf_converter_param
+    /// <summary>
+    /// Presentation of time value
+    /// </summary>
     public enum TimePresentation
     {
+        /// <summary>
+        /// Not included in string
+        /// </summary>
         None,
+        /// <summary>
+        /// Short variant
+        /// </summary>
         Short,
+        /// <summary>
+        /// Long variant
+        /// </summary>
         Long
     }
 }

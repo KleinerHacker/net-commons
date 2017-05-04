@@ -10,6 +10,10 @@ using net.commons.Markup;
 
 namespace net.commons.Converter
 {
+    /// \ingroup wpf_converter
+    /// <summary>
+    /// Represent a DateTime Converter. Please use always DateTimeParamExtension as parameter, this is a markup extension for XAML.
+    /// </summary>
     [ValueConversion(typeof(DateTime), typeof(string), ParameterType = typeof(DateTimeParam))]
     public class DateTimeConverter : IValueConverter
     {
