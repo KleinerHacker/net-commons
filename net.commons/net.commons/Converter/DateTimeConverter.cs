@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using net.commons.Extension;
 using net.commons.Markup;
+using net.commons.Markup.Parameter;
 
 namespace net.commons.Converter
 {
@@ -19,20 +20,17 @@ namespace net.commons.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null)
-            {
-                return "";
-            }
-            if (parameter != null && !(parameter is DateTimeParam))
-            {
-                throw new ArgumentException("parameter for this converter must be " + nameof(DateTimeParam) + ", set with " + nameof(DateTimeParamExtension));
-            }
+            if (parameter != null && !(parameter is IDateTimeParam))
+                throw new ArgumentException($"Wrong parameter type for converter {nameof(DateTimeConverter)}: Needed is {nameof(IDateTimeParam)}");
 
-            var dateTimeParam = parameter == null ? new DateTimeParamExtension().Build() : (DateTimeParam) parameter;
+            var param = (IDateTimeParam)parameter ?? new DateTimeParamExtension().Build();
+
+            if (value == null)
+                return null;
 
             var dateTime = (DateTime) value;
             var result = "";
-            switch (dateTimeParam.DatePresentation)
+            switch (param.DatePresentation)
             {
                 case DatePresentation.None:
                     break;
@@ -45,11 +43,11 @@ namespace net.commons.Converter
                 default:
                     throw new NotImplementedException();
             }
-            if (!result.IsEmpty() && dateTimeParam.TimePresentation != TimePresentation.None)
+            if (!result.IsEmpty() && param.TimePresentation != TimePresentation.None)
             {
-                result += dateTimeParam.Separator;
+                result += param.Separator;
             }
-            switch (dateTimeParam.TimePresentation)
+            switch (param.TimePresentation)
             {
                 case TimePresentation.None:
                     break;
@@ -68,7 +66,7 @@ namespace net.commons.Converter
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotSupportedException();
+            throw new NotSupportedException($"{nameof(DateTimeConverter)} does not support back converting");
         }
     }
 }

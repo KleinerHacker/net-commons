@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Markup;
 
-namespace net.commons.Markup
+namespace net.commons.Markup.Parameter
 {
     #region Parameters Markup Extensions
 
@@ -14,29 +9,19 @@ namespace net.commons.Markup
     {
     }
 
-    [MarkupExtensionReturnType(typeof(TextManipulationChangeCaseParam))]
-    public class TextManipulationUpperCaseParamExtension : TextManipulationParamExtension, ITextManipulationChangeCaseParam
+    [MarkupExtensionReturnType(typeof(ITextManipulationChangeCaseParam))]
+    public class TextManipulationChangeCaseParamExtension : TextManipulationParamExtension, ITextManipulationChangeCaseParam
     {
+        public ChangeCaseType Type { get; set; } = ChangeCaseType.Upper;
         public ChangeCaseVariant Variant { get; set; } = ChangeCaseVariant.AllCharacters;
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            return new TextManipulationChangeCaseParam(ChangeCaseType.Upper, Variant);
+            return new TextManipulationChangeCaseParam(Type, Variant);
         }
     }
 
-    [MarkupExtensionReturnType(typeof(TextManipulationChangeCaseParam))]
-    public class TextManipulationLowerCaseParamExtension : TextManipulationParamExtension, ITextManipulationChangeCaseParam
-    {
-        public ChangeCaseVariant Variant { get; set; } = ChangeCaseVariant.AllCharacters;
-
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-            return new TextManipulationChangeCaseParam(ChangeCaseType.Lower, Variant);
-        }
-    }
-
-    [MarkupExtensionReturnType(typeof(TextManipulationReplaceParam))]
+    [MarkupExtensionReturnType(typeof(ITextManipulationReplaceParam))]
     public class TextManipulationReplaceParamExtension : TextManipulationParamExtension, ITextManipulationReplaceParam
     {
         public string SourceString { get; set; }
@@ -66,6 +51,7 @@ namespace net.commons.Markup
 
     public interface ITextManipulationChangeCaseParam : ITextManipulationParam
     {
+        ChangeCaseType Type { get; set; }
         ChangeCaseVariant Variant { get; set; }
     }
 
@@ -81,24 +67,37 @@ namespace net.commons.Markup
 
     #region Parameters
 
-    internal class TextManipulationChangeCaseParam : ITextManipulationChangeCaseParam
+    public sealed class TextManipulationChangeCaseParam : ITextManipulationChangeCaseParam
     {
         public ChangeCaseType Type { get; set; }
         public ChangeCaseVariant Variant { get; set; }
+
+        public TextManipulationChangeCaseParam()
+        {
+        }
 
         public TextManipulationChangeCaseParam(ChangeCaseType type, ChangeCaseVariant variant)
         {
             Type = type;
             Variant = variant;
         }
+
+        public override string ToString()
+        {
+            return $"{nameof(Type)}: {Type}, {nameof(Variant)}: {Variant}";
+        }
     }
 
-    internal class TextManipulationReplaceParam : ITextManipulationReplaceParam
+    public sealed class TextManipulationReplaceParam : ITextManipulationReplaceParam
     {
         public string SourceString { get; set; }
         public string TargetString { get; set; }
         public int Repeat { get; set; }
         public bool IgnoreCase { get; set; }
+
+        public TextManipulationReplaceParam()
+        {
+        }
 
         public TextManipulationReplaceParam(string sourceString, string targetString, int repeat, bool ignoreCase)
         {
@@ -106,6 +105,11 @@ namespace net.commons.Markup
             TargetString = targetString;
             Repeat = repeat;
             IgnoreCase = ignoreCase;
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(SourceString)}: {SourceString}, {nameof(TargetString)}: {TargetString}, {nameof(Repeat)}: {Repeat}, {nameof(IgnoreCase)}: {IgnoreCase}";
         }
     }
 
@@ -119,7 +123,7 @@ namespace net.commons.Markup
         WordsOnly
     }
 
-    internal enum ChangeCaseType
+    public enum ChangeCaseType
     {
         Upper,
         Lower

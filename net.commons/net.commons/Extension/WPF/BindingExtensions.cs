@@ -36,16 +36,23 @@ namespace net.commons.Extension.WPF
             });
         }
 
-        public static void AddValueChangeCallback(this BindingBase binding, Type type, PropertyChangedCallback callback)
+        public static void AddValueChangeCallback(this BindingBase binding, Type type, EventHandler callback)
         {
-            var dummyDo = new DummyDependencyObject();
-            BindingOperations.SetBinding(dummyDo, DummyDependencyObject.ValueProperty, binding);
-            DummyDependencyObject.ValueProperty.AddPropertyChangeCallback(type, callback);
+            BindingOperations.SetBinding(DummyDependencyObject.Changed, DummyDependencyObject.ValueProperty, binding);
+            DummyDependencyObject.ValueProperty.AddValueChanged(DummyDependencyObject.Changed, callback);
+        }
+
+        public static void RemoveValueChangeCallback(this BindingBase binding, Type type, EventHandler callback)
+        {
+            BindingOperations.ClearBinding(DummyDependencyObject.Changed, DummyDependencyObject.ValueProperty);
+            DummyDependencyObject.ValueProperty.RemoveValueChanged(DummyDependencyObject.Changed, callback);
         }
     }
 
     internal sealed class DummyDependencyObject : DependencyObject
     {
+        internal static DummyDependencyObject Changed { get; } = new DummyDependencyObject();
+
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
             "Value", typeof(object), typeof(DummyDependencyObject), new PropertyMetadata(default(object)));
 

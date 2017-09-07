@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Markup;
+using net.commons.Converter;
 
-namespace net.commons.Markup
+namespace net.commons.Markup.Parameter
 {
     /// \ingroup wpf_converter_param
     /// \ingroup wpf_markup
     /// <summary>
-    /// Markup extension for DateTimeConverter parameter to use in XAML
+    /// Markup extension for <see cref="DateTimeConverter"/> parameter to use in XAML
     /// </summary>
-    [MarkupExtensionReturnType(typeof(DateTimeParam))]
+    [MarkupExtensionReturnType(typeof(IDateTimeParam))]
     public class DateTimeParamExtension : MarkupExtension, IDateTimeParam
     {
         public DatePresentation DatePresentation { get; set; } = DatePresentation.Short;
@@ -47,17 +44,26 @@ namespace net.commons.Markup
         string Separator { get; set; }
     }
 
-    internal class DateTimeParam : IDateTimeParam
+    public sealed class DateTimeParam : IDateTimeParam
     {
         public DatePresentation DatePresentation { get; set; }
         public TimePresentation TimePresentation { get; set; }
         public string Separator { get; set; }
+
+        public DateTimeParam()
+        {
+        }
 
         public DateTimeParam(DatePresentation datePresentation, TimePresentation timePresentation, string separator)
         {
             DatePresentation = datePresentation;
             TimePresentation = timePresentation;
             Separator = separator;
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(DatePresentation)}: {DatePresentation}, {nameof(TimePresentation)}: {TimePresentation}, {nameof(Separator)}: {Separator}";
         }
     }
 

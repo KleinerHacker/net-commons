@@ -6,48 +6,52 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
+using Microsoft.VisualBasic;
 using net.commons.Markup;
+using net.commons.Markup.Parameter;
 
 namespace net.commons.Converter
 {
-    [ValueConversion(typeof(bool), typeof(Visibility), ParameterType = typeof(VisibilityParam))]
+    [ValueConversion(typeof(bool), typeof(Visibility), ParameterType = typeof(BooleanToVisibilityParam))]
     public class BooleanToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var visibilityParam = AnalyzeAndGetParam(parameter);
+            if (parameter != null &&  !(parameter is IBooleanToVisibilityParam))
+                throw new ArgumentException($"Wrong parameter type for converter {nameof(BooleanToVisibilityConverter)}: Needed is {nameof(IBooleanToVisibilityParam)}");
+
+            var param = (IBooleanToVisibilityParam) parameter ?? new BooleanToVisibilityParamExtension().Build();
+
+            var hiddenVisibility = param.ManageLayout ? Visibility.Hidden : Visibility.Collapsed;
+            var isTrueVisibility = !param.Invert ? Visibility.Visible : hiddenVisibility;
+            var isFalseVisibility = !param.Invert ? hiddenVisibility : Visibility.Visible;
 
             if (value == null || !(bool) value)
-            {
-                return visibilityParam.Inverse ? Visibility.Visible : ConvertToHiddenOrCollapse(visibilityParam.ManageLayout);
-            }
-            else
-            {
-                return visibilityParam.Inverse ? ConvertToHiddenOrCollapse(visibilityParam.ManageLayout) : Visibility.Visible;
-            }
+                return isFalseVisibility;
+
+            return isTrueVisibility;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var visibilityParam = AnalyzeAndGetParam(parameter);
+            if (parameter != null && !(parameter is IBooleanToVisibilityParam))
+                throw new ArgumentException($"Wrong parameter type for converter {nameof(BooleanToVisibilityConverter)}: Needed is {nameof(IBooleanToVisibilityParam)}");
 
-            return visibilityParam.Inverse ? value == null || (Visibility) value != Visibility.Visible : value != null && (Visibility) value == Visibility.Visible;
-        }
+            var param = (IBooleanToVisibilityParam)parameter ?? new BooleanToVisibilityParamExtension().Build();
 
-        private static VisibilityParam AnalyzeAndGetParam(object parameter)
-        {
-            if (parameter != null && !(parameter is VisibilityParam))
+            if (value == null)
+                return false;
+
+            switch ((Visibility) value)
             {
-                throw new ArgumentException("parameter for this converter must be " + nameof(VisibilityParam) + ", set with " + nameof(VisibilityParamExtension));
+                case Visibility.Collapsed:
+                case Visibility.Hidden:
+                    return param.Invert;
+                case Visibility.Visible:
+                    return !param.Invert;
+                default:
+                    throw new NotImplementedException();
             }
-
-            var visibilityParam = parameter == null ? new VisibilityParamExtension().Build() : (VisibilityParam)parameter;
-            return visibilityParam;
-        }
-
-        private Visibility ConvertToHiddenOrCollapse(bool manageLayout)
-        {
-            return manageLayout ? Visibility.Hidden : Visibility.Collapsed;
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using net.commons.Extension;
 using net.commons.Markup;
+using net.commons.Markup.Parameter;
 
 namespace net.commons.Converter
 {
@@ -15,22 +16,19 @@ namespace net.commons.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null)
-            {
-                return null;
-            }
-            if (parameter == null)
-            {
-                return value.ToString();
-            } else if (!(parameter is ITextManipulationParam))
-            {
-                throw new ArgumentException("parameter for this converter must be " + nameof(ITextManipulationParam) + ", set with " + nameof(TextManipulationParamExtension));
-            }
+            if (parameter != null && !(parameter is ITextManipulationParam))
+                throw new ArgumentException($"Wrong parameter type for converter {nameof(TextManipulationConverter)}: Needed is {nameof(ITextManipulationParam)}");
 
-            var manipulation = (ITextManipulationParam) parameter;
-            if (manipulation is TextManipulationChangeCaseParam)
+            var param = (ITextManipulationParam) parameter;
+
+            if (value == null)
+                return null;
+            if (parameter == null)
+                return value.ToString();
+            
+            if (param is ITextManipulationChangeCaseParam)
             {
-                var changeCaseParam = manipulation as TextManipulationChangeCaseParam;
+                var changeCaseParam = (ITextManipulationChangeCaseParam) param;
                 switch (changeCaseParam.Type)
                 {
                     case ChangeCaseType.Upper:
@@ -57,9 +55,9 @@ namespace net.commons.Converter
                         throw new NotImplementedException();
                 }
             }
-            else if (manipulation is TextManipulationReplaceParam)
+            else if (param is ITextManipulationReplaceParam)
             {
-                var replaceParam = manipulation as TextManipulationReplaceParam;
+                var replaceParam = (ITextManipulationReplaceParam) param;
                 return value.ToString().Replace(replaceParam.SourceString, replaceParam.TargetString, replaceParam.IgnoreCase, replaceParam.Repeat);
             }
             else
@@ -70,7 +68,7 @@ namespace net.commons.Converter
 
         public object ConvertBack(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotSupportedException();
+            throw new NotSupportedException($"{nameof(TextManipulationConverter)} does not support back converting");
         }
     }
 }
