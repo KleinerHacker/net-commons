@@ -13,15 +13,22 @@ namespace net.commons.Extension.WPF
     {
         public static bool IsPixelTransparent(this Image image, int x, int y, int tolerance = 0)
         {
-            var source = (BitmapSource)image.Source;
+            try
+            {
+                var source = (BitmapSource)image.Source;
 
-            var xx = (int)(x / image.ActualWidth * source.PixelWidth);
-            var yy = (int)(y / image.ActualHeight * source.PixelHeight);
+                var xx = (int)(x / image.ActualWidth * source.PixelWidth);
+                var yy = (int)(y / image.ActualHeight * source.PixelHeight);
 
-            var pixel = new byte[4];
-            source.CopyPixels(new Int32Rect(xx, yy, 1, 1), pixel, 4, 0);
+                var pixel = new byte[4];
+                source.CopyPixels(new Int32Rect(xx, yy, 1, 1), pixel, 4, 0);
 
-            return pixel[3] <= tolerance;
+                return pixel[3] <= tolerance;
+            }
+            catch (Exception)
+            {
+                return true;
+            }
         }
     }
 }

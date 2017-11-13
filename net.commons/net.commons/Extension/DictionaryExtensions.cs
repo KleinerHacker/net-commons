@@ -116,5 +116,69 @@ namespace net.commons.Extension
             var index = Random.Next(dict.Count);
             return dict.ElementAt(index);
         }
+
+        public static void SyncByKeyWith<TK, TV>(this IDictionary<TK, TV> dict, IList<KeyValuePair<TK, TV>> syncDict)
+        {
+            SyncByKeyWith(dict, syncDict.ToArray());
+        }
+
+        public static void SyncByKeyWith<TK, TV>(this IDictionary<TK, TV> dict, IList<KeyValuePair<TK, TV>> syncDict, Action<IDictionary<TK, TV>, TK, TV> overwriteAction)
+        {
+            SyncByKeyWith(dict, syncDict.ToArray(), overwriteAction);
+        }
+
+        public static void SyncByKeyWith<TK, TV>(this IDictionary<TK, TV> dict, params KeyValuePair<TK, TV>[] syncDict)
+        {
+            SyncByKeyWith(dict, syncDict.ToDictionary(pair => pair.Key, pair => pair.Value));
+        }
+
+        public static void SyncByKeyWith<TK, TV>(this IDictionary<TK, TV> dict, Action<IDictionary<TK, TV>, TK, TV> overwriteAction, params KeyValuePair<TK, TV>[] syncDict)
+        {
+            SyncByKeyWith(dict, syncDict.ToDictionary(pair => pair.Key, pair => pair.Value), overwriteAction);
+        }
+
+        public static void SyncByKeyWith<TK, TV>(this IDictionary<TK, TV> dict, IDictionary<TK, TV> syncDict)
+        {
+            SyncByKeyWith(dict, syncDict, (dic, key, value) => dic[key] = value);
+        }
+
+        public static void SyncByKeyWith<TK, TV>(this IDictionary<TK, TV> dict, IDictionary<TK, TV> syncDict, Action<IDictionary<TK, TV>, TK, TV> overwriteAction)
+        {
+            //Find removed
+            var removedElements = dict.Keys.ToList().FindAll(value => !syncDict.Keys.Contains(value)).ToArray();
+            //Find new
+            var newElements = syncDict.Keys.ToList().FindAll(value => !dict.Keys.Contains(value)).ToArray();
+            //Find already inserted elements
+            var alreadyInsertedElements = dict.Keys.Where(syncDict.ContainsKey).ToArray();
+
+            dict.RemoveAll(removedElements); //Remove in sync missed values 
+            dict.AddAll(syncDict.Where(pair => newElements.Contains(pair.Key))); //Add new values from sync
+            //Overwrite inserted elements with new(?) value
+            foreach (var alreadyInsertedElement in alreadyInsertedElements)
+            {
+                overwriteAction(dict, alreadyInsertedElement, syncDict[alreadyInsertedElement]);
+            }
+        }
+
+        public static void SyncByValueWith<TK, TV>(this IDictionary<TK, TV> dict, IList<KeyValuePair<TK, TV>> syncDict)
+        {
+            SyncByValueWith(dict, syncDict.ToArray());
+        }
+
+        public static void SyncByValueWith<TK, TV>(this IDictionary<TK, TV> dict, params KeyValuePair<TK, TV>[] syncDict)
+        {
+            SyncByValueWith(dict, syncDict.ToDictionary(pair => pair.Key, pair => pair.Value));
+        }
+
+        public static void SyncByValueWith<TK, TV>(this IDictionary<TK, TV> dict, IDictionary<TK, TV> syncDict)
+        {
+            //Find new
+            var newElements = syncDict.ToList().FindAll(value => !dict.Values.Contains(value.Value)).Select(value => value.Key).ToArray();
+            //Find removed
+            var removedElements = dict.ToList().FindAll(value => !syncDict.Values.Contains(value.Value)).Select(value => value.Key).ToArray();
+
+            dict.RemoveAll(removedElements);
+            dict.AddAll(syncDict.Where(pair => newElements.Contains(pair.Key)));
+        }
     }
 }

@@ -190,26 +190,29 @@ namespace net.commons.Extension
         /// <param name="syncCollection"></param>
         public static void SyncWith<T>(this ICollection<T> collection, ICollection<T> syncCollection)
         {
-            if (collection == null)
+            SyncWith(collection, syncCollection.ToArray());
+        }
+
+        public static void SyncWith<T>(this IList<T> list, params T[] syncList)
+        {
+            //Find new
+            var newElements = syncList.ToList().FindAll(value => !list.Contains(value)).ToArray();
+            //Find removed
+            var removedElements = list.ToList().FindAll(value => !syncList.Contains(value)).ToArray();
+
+            list.RemoveAll(removedElements);
+            list.AddAll(newElements);
+        }
+
+        public static int IndexOf<T>(this IEnumerable<T> array, Func<T, bool> testFunc)
+        {
+            for (var i = 0; i < array.Count(); i++)
             {
-                throw new NullReferenceException();
-            }
-            if (syncCollection == null)
-            {
-                return;
+                if (testFunc.Invoke(array.ElementAt(i)))
+                    return i;
             }
 
-            var removeList = collection.Where(item => !syncCollection.Any(syncItem => item.Equals(syncItem))).ToList();
-            foreach (var removeItem in removeList)
-            {
-                collection.Remove(removeItem);
-            }
-
-            var addList = syncCollection.Where(item => !collection.Any(syncItem => item.Equals(syncItem))).ToList();
-            foreach (var addItem in addList)
-            {
-                collection.Add(addItem);
-            }
+            return -1;
         }
     }
 

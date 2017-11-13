@@ -32,7 +32,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <DocumentationFile>bin\Release\net.commons.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -40,6 +39,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Presentation" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -62,6 +62,9 @@
     <Compile Include="doxy.cs" />
     <Compile Include="Extension\CollectionExtensions.cs" />
     <Compile Include="Extension\DictionaryExtensions.cs" />
+    <Compile Include="Extension\Drawing\IconExtensions.cs" />
+    <Compile Include="Extension\Drawing\ImageExtensions.cs" />
+    <Compile Include="Extension\System\ProcessExtensions.cs" />
     <Compile Include="Extension\ThreadExtensions.cs" />
     <Compile Include="Extension\WPF\ApplicationExtensions.cs" />
     <Compile Include="Extension\WPF\BindingExtensions.cs" />
