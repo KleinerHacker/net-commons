@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
 
-namespace net.commons.Markup
+namespace Net.Commons.Markup
 {
     [MarkupExtensionReturnType(typeof(long[]))]
     public class IntegerArrayExtension : MarkupExtension

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
-namespace net.commons.Converter
+namespace Net.Commons.Converter
 {
     [ValueConversion(typeof(Visibility), typeof(Visibility))]
     public class VisibilityManageLayoutConverter : IValueConverter

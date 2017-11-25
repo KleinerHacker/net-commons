@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Markup;
-using net.commons.Converter;
+using Net.Commons.Converter;
 
-namespace net.commons.Markup.Parameter
+namespace Net.Commons.Markup.Parameter
 {
     /// \ingroup wpf_converter_param
     /// \ingroup wpf_markup

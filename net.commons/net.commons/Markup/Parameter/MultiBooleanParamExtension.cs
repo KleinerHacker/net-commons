@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
 
-namespace net.commons.Markup.Parameter
+namespace Net.Commons.Markup.Parameter
 {
     [MarkupExtensionReturnType(typeof(IMultiBooleanParam))]
     public class MultiBooleanParamExtension : MarkupExtension, IMultiBooleanParam

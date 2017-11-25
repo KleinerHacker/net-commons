@@ -7,8 +7,8 @@
     <ProjectGuid>{18B85670-0DCE-4C48-9817-1EB699FAC8B9}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>net.commons.run</RootNamespace>
-    <AssemblyName>net.commons.run</AssemblyName>
+    <RootNamespace>Net.Commons.Run</RootNamespace>
+    <AssemblyName>Net.Commons.Run</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

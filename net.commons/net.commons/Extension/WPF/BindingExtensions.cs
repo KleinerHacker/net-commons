@@ -6,7 +6,7 @@ using System.Windows.Data;
 
 #endregion
 
-namespace net.commons.Extension.WPF
+namespace Net.Commons.Extension.WPF
 {
     public static class BindingExtensions
     {

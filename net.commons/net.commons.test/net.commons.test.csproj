@@ -6,8 +6,8 @@
     <ProjectGuid>{95DD9805-63FD-4F76-ABD7-63A472A22129}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>net.commons.test</RootNamespace>
-    <AssemblyName>net.commons.test</AssemblyName>
+    <RootNamespace>Net.Commons.Test</RootNamespace>
+    <AssemblyName>Net.Commons.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

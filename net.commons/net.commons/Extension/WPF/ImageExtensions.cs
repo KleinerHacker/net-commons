@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace net.commons.Extension.WPF
+namespace Net.Commons.Extension.WPF
 {
     public static class ImageExtensions
     {

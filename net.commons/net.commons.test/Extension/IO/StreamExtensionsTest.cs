@@ -4,11 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using net.commons.Extension.IO;
+using Net.Commons.Extension.IO;
 
 #endregion
 
-namespace net.commons.test.Extension.IO
+namespace Net.Commons.Test.Extension.IO
 {
     [TestClass]
     public class StreamExtensionsTest

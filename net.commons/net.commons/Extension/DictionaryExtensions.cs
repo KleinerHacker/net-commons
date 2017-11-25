@@ -6,7 +6,7 @@ using System.Linq;
 
 #endregion
 
-namespace net.commons.Extension
+namespace Net.Commons.Extension
 {
     public static class DictionaryExtensions
     {

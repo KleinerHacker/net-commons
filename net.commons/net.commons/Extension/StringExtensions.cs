@@ -9,7 +9,7 @@ using Microsoft.VisualBasic.CompilerServices;
 
 #endregion
 
-namespace net.commons.Extension
+namespace Net.Commons.Extension
 {
     public static class StringExtensions
     {

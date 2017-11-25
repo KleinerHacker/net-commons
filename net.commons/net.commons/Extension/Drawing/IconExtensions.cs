@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 
-namespace net.commons.Extension.Drawing
+namespace Net.Commons.Extension.Drawing
 {
     public static class IconExtensions
     {

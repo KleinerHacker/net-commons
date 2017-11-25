@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Markup;
 
-namespace net.commons.Markup.Parameter
+namespace Net.Commons.Markup.Parameter
 {
     [MarkupExtensionReturnType(typeof(IBooleanToVisibilityParam))]
     public class BooleanToVisibilityParamExtension : MarkupExtension, IBooleanToVisibilityParam

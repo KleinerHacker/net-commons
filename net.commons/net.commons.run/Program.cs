@@ -1,4 +1,4 @@
-﻿namespace net.commons.run
+﻿namespace Net.Commons.Run
 {
     class Program
     {

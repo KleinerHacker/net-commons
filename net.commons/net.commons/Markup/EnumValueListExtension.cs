@@ -6,7 +6,7 @@ using System.Windows.Markup;
 
 #endregion
 
-namespace net.commons.Markup
+namespace Net.Commons.Markup
 {
     [MarkupExtensionReturnType(typeof(Enum[]))]
     public class EnumValueListExtension : MarkupExtension

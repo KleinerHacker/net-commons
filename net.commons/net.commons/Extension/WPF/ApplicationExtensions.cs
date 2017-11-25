@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace net.commons.Extension.WPF
+namespace Net.Commons.Extension.WPF
 {
     public static class ApplicationExtensions
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Markup;
 
-namespace net.commons.Markup
+namespace Net.Commons.Markup
 {
     [MarkupExtensionReturnType(typeof(int))]
     public class IntegerExtension : MarkupExtension
@@ -168,7 +168,7 @@ namespace net.commons.Markup
         Int64,
         Int32,
         Int16,
-        Byte
+        Byte,
     }
 
     public enum DecimalType

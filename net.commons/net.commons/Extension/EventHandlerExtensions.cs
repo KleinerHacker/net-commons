@@ -5,7 +5,7 @@ using System.Reflection;
 
 #endregion
 
-namespace net.commons.Extension
+namespace Net.Commons.Extension
 {
     public static class EventHandlerExtensions
     {

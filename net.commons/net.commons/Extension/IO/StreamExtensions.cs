@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 #endregion
 
-namespace net.commons.Extension.IO
+namespace Net.Commons.Extension.IO
 {
     public static class StreamExtensions
     {

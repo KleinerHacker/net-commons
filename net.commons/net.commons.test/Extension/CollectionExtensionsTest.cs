@@ -3,11 +3,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using net.commons.Extension;
+using Net.Commons.Extension;
 
 #endregion
 
-namespace net.commons.test.Extension
+namespace Net.Commons.Test.Extension
 {
     [TestClass]
     public class CollectionExtensionsTest

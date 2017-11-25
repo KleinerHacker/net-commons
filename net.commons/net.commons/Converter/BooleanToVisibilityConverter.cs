@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using Microsoft.VisualBasic;
-using net.commons.Markup;
-using net.commons.Markup.Parameter;
+using Net.Commons.Markup;
+using Net.Commons.Markup.Parameter;
 
-namespace net.commons.Converter
+namespace Net.Commons.Converter
 {
     [ValueConversion(typeof(bool), typeof(Visibility), ParameterType = typeof(BooleanToVisibilityParam))]
     public class BooleanToVisibilityConverter : IValueConverter
