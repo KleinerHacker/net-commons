@@ -11,6 +11,15 @@ using Net.Commons.Markup.Parameter;
 
 namespace Net.Commons.Converter
 {
+    /// \ingroup wpf_single_converter
+    /// <summary>
+    /// Represent a value converter to convert a text (string) value to an other text (string) value based on an optional parameter of type <see cref="ITextManipulationParam"/>.<br/>
+    /// There are this converter parameters, based on parameter interface above:
+    /// <ul>
+    ///     <li><see cref="ITextManipulationChangeCaseParam"/>, usable with Markup Extension <see cref="TextManipulationChangeCaseParamExtension"/></li>
+    ///     <li><see cref="ITextManipulationReplaceParam"/>, usable with Markup Extension <see cref="TextManipulationReplaceParamExtension"/></li>
+    /// </ul>
+    /// </summary>
     [ValueConversion(typeof(string), typeof(string), ParameterType = typeof(ITextManipulationParam))]
     public class TextManipulationConverter : IValueConverter
     {

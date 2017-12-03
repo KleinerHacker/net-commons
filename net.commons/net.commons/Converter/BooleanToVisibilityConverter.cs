@@ -12,7 +12,12 @@ using Net.Commons.Markup.Parameter;
 
 namespace Net.Commons.Converter
 {
-    [ValueConversion(typeof(bool), typeof(Visibility), ParameterType = typeof(BooleanToVisibilityParam))]
+    /// \ingroup wpf_single_converter
+    /// <summary>
+    /// Convert a boolean value to a visibility value based on an optional parameter of type <see cref="IBooleanToVisibilityParam"/>. 
+    /// The parameter can used as Markup Extension, see <see cref="BooleanToVisibilityParamExtension"/>
+    /// </summary>
+    [ValueConversion(typeof(bool), typeof(Visibility), ParameterType = typeof(IBooleanToVisibilityParam))]
     public class BooleanToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

@@ -2,6 +2,7 @@
 
 using System;
 using System.Security.Permissions;
+using System.Windows.Shell;
 using System.Windows.Threading;
 
 #endregion

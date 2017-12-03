@@ -10,6 +10,11 @@ using Net.Commons.Markup.Parameter;
 
 namespace Net.Commons.Converter
 {
+    /// \ingroup wpf_single_converter
+    /// <summary>
+    /// Represent a value converter to convert an object value to a visibility value based on an optional parameter of type <see cref="IObjectToVisibilityParam"/>. 
+    /// The parameter can used as Markup Extension, see <see cref="ObjectToVisibilityParamExtension"/>
+    /// </summary>
     [ValueConversion(typeof(object), typeof(Visibility), ParameterType = typeof(IObjectToVisibilityParam))]
     public class ObjectToVisibilityConverter : IValueConverter
     {

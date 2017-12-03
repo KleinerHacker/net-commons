@@ -11,11 +11,12 @@ using Net.Commons.Markup.Parameter;
 
 namespace Net.Commons.Converter
 {
-    /// \ingroup wpf_converter
+    /// \ingroup wpf_single_converter
     /// <summary>
-    /// Represent a DateTime Converter. Please use always DateTimeParamExtension as parameter, this is a markup extension for XAML.
+    /// Represent a value converter to convert a DateTime to a string value (first date, second time) based on an optional parameter of type <see cref="IDateTimeParam"/>. 
+    /// The parameter can used as Markup Extension, see <see cref="DateTimeParamExtension"/>
     /// </summary>
-    [ValueConversion(typeof(DateTime), typeof(string), ParameterType = typeof(DateTimeParam))]
+    [ValueConversion(typeof(DateTime), typeof(string), ParameterType = typeof(IDateTimeParam))]
     public class DateTimeConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

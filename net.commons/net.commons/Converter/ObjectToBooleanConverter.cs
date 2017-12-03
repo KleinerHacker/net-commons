@@ -10,6 +10,11 @@ using Net.Commons.Markup.Parameter;
 
 namespace Net.Commons.Converter
 {
+    /// \ingroup wpf_single_converter
+    /// <summary>
+    /// Represent a value converter to convert an object value to a boolean value based on an optional parameter of type <see cref="IObjectToBooleanParam"/>. 
+    /// The parameter can used as Markup Extension, see <see cref="ObjectToBooleanParamExtension"/>
+    /// </summary>
     [ValueConversion(typeof(object), typeof(bool), ParameterType = typeof(IObjectToBooleanParam))]
     public class ObjectToBooleanConverter : IValueConverter
     {

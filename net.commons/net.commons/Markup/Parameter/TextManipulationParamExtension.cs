@@ -1,14 +1,25 @@
 ﻿using System;
 using System.Windows.Markup;
+using Net.Commons.Converter;
 
 namespace Net.Commons.Markup.Parameter
 {
     #region Parameters Markup Extensions
 
+    /// \ingroup wpf_single_converter_param
+    /// \ingroup wpf_markup
+    /// <summary>
+    /// Basic markup extension for <see cref="TextManipulationConverter"/> parameter to use in XAML
+    /// </summary>
     public abstract class TextManipulationParamExtension : MarkupExtension, ITextManipulationParam
     {
     }
 
+    /// \ingroup wpf_single_converter_param
+    /// \ingroup wpf_markup
+    /// <summary>
+    /// Markup extension for <see cref="TextManipulationConverter"/> parameter to use in XAML. See <see cref="ITextManipulationChangeCaseParam"/>
+    /// </summary>
     [MarkupExtensionReturnType(typeof(ITextManipulationChangeCaseParam))]
     public class TextManipulationChangeCaseParamExtension : TextManipulationParamExtension, ITextManipulationChangeCaseParam
     {
@@ -17,10 +28,20 @@ namespace Net.Commons.Markup.Parameter
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
+            return Build();
+        }
+
+        internal ITextManipulationChangeCaseParam Build()
+        {
             return new TextManipulationChangeCaseParam(Type, Variant);
         }
     }
 
+    /// \ingroup wpf_single_converter_param
+    /// \ingroup wpf_markup
+    /// <summary>
+    /// Markup extension for <see cref="TextManipulationConverter"/> parameter to use in XAML. See <see cref="ITextManipulationReplaceParam"/>
+    /// </summary>
     [MarkupExtensionReturnType(typeof(ITextManipulationReplaceParam))]
     public class TextManipulationReplaceParamExtension : TextManipulationParamExtension, ITextManipulationReplaceParam
     {
@@ -37,6 +58,11 @@ namespace Net.Commons.Markup.Parameter
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
+            return Build();
+        }
+
+        internal ITextManipulationReplaceParam Build()
+        {
             return new TextManipulationReplaceParam(SourceString, TargetString, Repeat, IgnoreCase);
         }
     }
@@ -45,21 +71,51 @@ namespace Net.Commons.Markup.Parameter
 
     #region Parameters Interfaces
 
+    /// \ingroup wpf_single_converter_param
+    /// <summary>
+    /// Basic Interface for the converter parameter of <see cref="TextManipulationConverter"/>, see <see cref="ITextManipulationChangeCaseParam"/>, <see cref="ITextManipulationReplaceParam"/>
+    /// </summary>
     public interface ITextManipulationParam
     {
     }
 
+    /// \ingroup wpf_single_converter_param
+    /// <summary>
+    /// Interface for the converter parameter of <see cref="TextManipulationConverter"/>, see <see cref="TextManipulationChangeCaseParam"/>
+    /// </summary>
     public interface ITextManipulationChangeCaseParam : ITextManipulationParam
     {
+        /// <summary>
+        /// Type of case change
+        /// </summary>
         ChangeCaseType Type { get; set; }
+        /// <summary>
+        /// Variant of case change
+        /// </summary>
         ChangeCaseVariant Variant { get; set; }
     }
 
+    /// \ingroup wpf_single_converter_param
+    /// <summary>
+    /// Interface for the converter parameter of <see cref="TextManipulationConverter"/>, see <see cref="TextManipulationReplaceParam"/>
+    /// </summary>
     public interface ITextManipulationReplaceParam : ITextManipulationParam
     {
+        /// <summary>
+        /// String to search for
+        /// </summary>
         string SourceString { get; set; }
+        /// <summary>
+        /// String to replace with
+        /// </summary>
         string TargetString { get; set; }
+        /// <summary>
+        /// Count of repeation, default is -1 (means all)
+        /// </summary>
         int Repeat { get; set; }
+        /// <summary>
+        /// TRUE to ignore case, otherwise FALSE (default)
+        /// </summary>
         bool IgnoreCase { get; set; }
     }
 
@@ -67,9 +123,15 @@ namespace Net.Commons.Markup.Parameter
 
     #region Parameters
 
+    /// \ingroup wpf_single_converter_param
+    /// <summary>
+    /// Converter parameter of <see cref="TextManipulationConverter"/>
+    /// </summary>
     public sealed class TextManipulationChangeCaseParam : ITextManipulationChangeCaseParam
     {
+        /// <inheritdoc />
         public ChangeCaseType Type { get; set; }
+        /// <inheritdoc />
         public ChangeCaseVariant Variant { get; set; }
 
         public TextManipulationChangeCaseParam()
@@ -88,11 +150,19 @@ namespace Net.Commons.Markup.Parameter
         }
     }
 
+    /// \ingroup wpf_single_converter_param
+    /// <summary>
+    /// Converter parameter of <see cref="TextManipulationConverter"/>
+    /// </summary>
     public sealed class TextManipulationReplaceParam : ITextManipulationReplaceParam
     {
+        /// <inheritdoc />
         public string SourceString { get; set; }
+        /// <inheritdoc />
         public string TargetString { get; set; }
+        /// <inheritdoc />
         public int Repeat { get; set; }
+        /// <inheritdoc />
         public bool IgnoreCase { get; set; }
 
         public TextManipulationReplaceParam()
@@ -117,15 +187,35 @@ namespace Net.Commons.Markup.Parameter
 
     #region Types
 
+    /// \ingroup wpf_single_converter_param
+    /// <summary>
+    /// Represent the variants to change case
+    /// </summary>
     public enum ChangeCaseVariant
     {
+        /// <summary>
+        /// All characters are changed
+        /// </summary>
         AllCharacters,
+        /// <summary>
+        /// Only first character of each word is changed
+        /// </summary>
         WordsOnly
     }
 
+    /// \ingroup wpf_single_converter_param
+    /// <summary>
+    /// Represent the types to change case
+    /// </summary>
     public enum ChangeCaseType
     {
+        /// <summary>
+        /// Change to upper case
+        /// </summary>
         Upper,
+        /// <summary>
+        /// Chnage to lower case
+        /// </summary>
         Lower
     }
 

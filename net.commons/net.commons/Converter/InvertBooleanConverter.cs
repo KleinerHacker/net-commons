@@ -8,6 +8,10 @@ using System.Windows.Data;
 
 namespace Net.Commons.Converter
 {
+    /// \ingroup wpf_single_converter
+    /// <summary>
+    /// Represent a value converter to inverse a boolean value. There are no specific parameters.
+    /// </summary>
     [ValueConversion(typeof(bool), typeof(bool))]
     public class InvertBooleanConverter : IValueConverter
     {

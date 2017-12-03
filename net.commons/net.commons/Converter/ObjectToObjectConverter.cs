@@ -10,6 +10,11 @@ using Net.Commons.Markup.Parameter;
 
 namespace Net.Commons.Converter
 {
+    /// \ingroup wpf_single_converter
+    /// <summary>
+    /// Represent a value converter to convert an object value to an other object value based on an optional parameter of type <see cref="IObjectToObjectParam"/>. 
+    /// The parameter can used as Markup Extension, see <see cref="ObjectToObjectParamExtension"/>
+    /// </summary>
     [ValueConversion(typeof(object), typeof(object), ParameterType = typeof(IObjectToObjectParam))]
     public class ObjectToObjectConverter : IValueConverter
     {

@@ -55,6 +55,7 @@
     <Compile Include="Converter\MultiBooleanConverter.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converter\DateTimeConverter.cs" />
+    <Compile Include="Converter\MultiBooleanToVisibilityConverter.cs" />
     <Compile Include="Converter\ObjectToObjectConverter.cs" />
     <Compile Include="Converter\ObjectToBooleanConverter.cs" />
     <Compile Include="Converter\ObjectToVisibilityConverter.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Markup\Parameter\DateTimeParamExtension.cs" />
     <Compile Include="Markup\EnumValueListExtension.cs" />
     <Compile Include="Markup\Parameter\MultiBooleanParamExtension.cs" />
+    <Compile Include="Markup\Parameter\MultiBooleanToVisibilityParamExtension.cs" />
     <Compile Include="Markup\Parameter\ObjectToBooleanParamExtension.cs" />
     <Compile Include="Markup\Parameter\ObjectToObjectParamExtension.cs" />
     <Compile Include="Markup\Parameter\ObjectToVisibilityParamExtension.cs" />

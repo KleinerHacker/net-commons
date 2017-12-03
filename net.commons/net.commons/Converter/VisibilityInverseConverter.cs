@@ -10,6 +10,11 @@ using Net.Commons.Markup.Parameter;
 
 namespace Net.Commons.Converter
 {
+    /// \ingroup wpf_single_converter
+    /// <summary>
+    /// Represent a value converter to convert a visibility value to an other visibility value based on an optional parameter of type <see cref="IVisibilityInverseParam"/>. 
+    /// The parameter can used as Markup Extension, see <see cref="VisibilityInverseParamExtension"/>
+    /// </summary>
     [ValueConversion(typeof(Visibility), typeof(Visibility), ParameterType = typeof(IVisibilityInverseParam))]
     public class VisibilityInverseConverter : IValueConverter
     {

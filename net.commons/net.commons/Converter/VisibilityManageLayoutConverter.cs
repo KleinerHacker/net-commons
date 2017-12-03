@@ -9,6 +9,10 @@ using System.Windows.Data;
 
 namespace Net.Commons.Converter
 {
+    /// \ingroup wpf_single_converter
+    /// <summary>
+    /// Represent a value converter to convert a visibility value in case of hidden / collapsed to the inverted state of managed layout. There are no needed parameters.
+    /// </summary>
     [ValueConversion(typeof(Visibility), typeof(Visibility))]
     public class VisibilityManageLayoutConverter : IValueConverter
     {
