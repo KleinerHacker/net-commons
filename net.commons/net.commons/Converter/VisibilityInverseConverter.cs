@@ -18,12 +18,12 @@ namespace Net.Commons.Converter
     [ValueConversion(typeof(Visibility), typeof(Visibility), ParameterType = typeof(IVisibilityInverseParam))]
     public class VisibilityInverseConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
             return Handle(value, parameter);
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
             return Handle(value, parameter);
         }

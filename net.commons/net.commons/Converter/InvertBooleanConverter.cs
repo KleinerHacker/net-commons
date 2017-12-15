@@ -15,12 +15,12 @@ namespace Net.Commons.Converter
     [ValueConversion(typeof(bool), typeof(bool))]
     public class InvertBooleanConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
             return !((bool) value);
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
             return !((bool) value);
         }

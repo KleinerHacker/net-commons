@@ -11,7 +11,7 @@ namespace Net.Commons.Markup
     [MarkupExtensionReturnType(typeof(Enum[]))]
     public class EnumValueListExtension : MarkupExtension
     {
-        public Type Type { get; set; }
+        public System.Type Type { get; set; }
         public bool WithNoneItem { get; set; } = false;
         public string NoneItemString { get; set; } = "<None>";
 
@@ -19,7 +19,7 @@ namespace Net.Commons.Markup
         {
         }
 
-        public EnumValueListExtension(Type type)
+        public EnumValueListExtension(System.Type type)
         {
             if (type == null || !type.IsEnum)
             {

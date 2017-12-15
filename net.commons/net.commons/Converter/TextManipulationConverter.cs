@@ -23,7 +23,7 @@ namespace Net.Commons.Converter
     [ValueConversion(typeof(string), typeof(string), ParameterType = typeof(ITextManipulationParam))]
     public class TextManipulationConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
             if (parameter != null && !(parameter is ITextManipulationParam))
                 throw new ArgumentException($"Wrong parameter type for converter {nameof(TextManipulationConverter)}: Needed is {nameof(ITextManipulationParam)}");

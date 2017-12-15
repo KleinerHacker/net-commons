@@ -16,7 +16,7 @@ namespace Net.Commons.Converter
     /// </summary>
     public class MultiBooleanToVisibilityConverter : IMultiValueConverter
     {
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object[] values, System.Type targetType, object parameter, CultureInfo culture)
         {
             if (parameter != null && !(parameter is IMultiBooleanToVisibilityParam))
                 throw new ArgumentException($"Wrong parameter type for converter {nameof(MultiBooleanToVisibilityConverter)}: Needed is {nameof(IMultiBooleanToVisibilityParam)}");
@@ -34,7 +34,7 @@ namespace Net.Commons.Converter
             }
         }
 
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        public object[] ConvertBack(object value, System.Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotSupportedException($"{nameof(MultiBooleanToVisibilityConverter)} does not support back converting");
         }

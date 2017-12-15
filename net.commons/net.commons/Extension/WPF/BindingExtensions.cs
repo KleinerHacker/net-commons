@@ -36,13 +36,13 @@ namespace Net.Commons.Extension.WPF
             });
         }
 
-        public static void AddValueChangeCallback(this BindingBase binding, Type type, EventHandler callback)
+        public static void AddValueChangeCallback(this BindingBase binding, System.Type type, EventHandler callback)
         {
             BindingOperations.SetBinding(DummyDependencyObject.Changed, DummyDependencyObject.ValueProperty, binding);
             DummyDependencyObject.ValueProperty.AddValueChanged(DummyDependencyObject.Changed, callback);
         }
 
-        public static void RemoveValueChangeCallback(this BindingBase binding, Type type, EventHandler callback)
+        public static void RemoveValueChangeCallback(this BindingBase binding, System.Type type, EventHandler callback)
         {
             BindingOperations.ClearBinding(DummyDependencyObject.Changed, DummyDependencyObject.ValueProperty);
             DummyDependencyObject.ValueProperty.RemoveValueChanged(DummyDependencyObject.Changed, callback);

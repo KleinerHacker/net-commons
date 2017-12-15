@@ -19,7 +19,7 @@ namespace Net.Commons.Converter
     [ValueConversion(typeof(DateTime), typeof(string), ParameterType = typeof(IDateTimeParam))]
     public class DateTimeConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
             if (parameter != null && !(parameter is IDateTimeParam))
                 throw new ArgumentException($"Wrong parameter type for converter {nameof(DateTimeConverter)}: Needed is {nameof(IDateTimeParam)}");
@@ -65,7 +65,7 @@ namespace Net.Commons.Converter
             return result;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotSupportedException($"{nameof(DateTimeConverter)} does not support back converting");
         }

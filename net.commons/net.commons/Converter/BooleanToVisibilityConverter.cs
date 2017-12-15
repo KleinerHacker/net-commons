@@ -20,7 +20,7 @@ namespace Net.Commons.Converter
     [ValueConversion(typeof(bool), typeof(Visibility), ParameterType = typeof(IBooleanToVisibilityParam))]
     public class BooleanToVisibilityConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
             if (parameter != null &&  !(parameter is IBooleanToVisibilityParam))
                 throw new ArgumentException($"Wrong parameter type for converter {nameof(BooleanToVisibilityConverter)}: Needed is {nameof(IBooleanToVisibilityParam)}");
@@ -37,7 +37,7 @@ namespace Net.Commons.Converter
             return isTrueVisibility;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
             if (parameter != null && !(parameter is IBooleanToVisibilityParam))
                 throw new ArgumentException($"Wrong parameter type for converter {nameof(BooleanToVisibilityConverter)}: Needed is {nameof(IBooleanToVisibilityParam)}");
