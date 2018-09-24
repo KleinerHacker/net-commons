@@ -1,3 +1,4 @@
 net.commons/.vs
 **/bin
 **/obj
+*/.idea/**

@@ -96,13 +96,15 @@
     <Compile Include="Type\DelegateEqualityComparer.cs" />
     <Compile Include="Type\WPF\DelegateCommand.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="package.nuspec" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>"$(SolutionDir)\cleanup.bat" "$(ProjectDir)"</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>"$(SolutionDir)\doxy.bat" "$(SolutionDir)" "doxy.cfg"</PostBuildEvent>
+    <PostBuildEvent>REM "$(SolutionDir)\doxy.bat" "$(SolutionDir)" "doxy.cfg"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

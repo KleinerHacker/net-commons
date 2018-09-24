@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <!--*-->
+    <id>net.commons</id>
+    <!--*-->
+    <version>0.5.3</version>
+    <title>net.commons</title>
+    <!--*-->
+    <authors>KleinerHacker</authors>
+    <owners>PC-Soft</owners>
+    <licenseUrl>https://github.com/KleinerHacker/net-commons/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/KleinerHacker/net-commons</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <!--*-->
+    <description>Commons for .NET Framework</description>
+    <!--*-->
+    <releaseNotes>First release on NuGet</releaseNotes>
+    <copyright>PC-Soft 2017</copyright>
+    <tags>.NET, Commons, Extensions</tags>
+    <dependencies>
+      <!--
+      <dependency id="SampleDependency" version="1.0" />
+-->
+    </dependencies>
+  </metadata>
+</package>
